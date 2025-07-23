@@ -1,7 +1,7 @@
+#pragma once
+
 #ifndef FIXED_HPP
 #define FIXED_HPP
-
-#pragma once
 
 #include <iostream>
 #include <cmath>
