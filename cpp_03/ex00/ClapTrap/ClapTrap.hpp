@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef CLAPTRAP_HPP
 #define CLAPTRAP_HPP
 
