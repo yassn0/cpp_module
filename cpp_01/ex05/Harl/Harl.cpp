@@ -1,4 +1,6 @@
 #include "Harl.hpp"
+#include <iostream>
+#include <fstream>
 
 Harl::Harl(void)
 {

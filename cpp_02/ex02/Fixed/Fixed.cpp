@@ -1,4 +1,6 @@
 #include "Fixed.hpp"
+#include <iostream>
+#include <cmath>
 
 Fixed::Fixed(void) : _value(0)
 {

@@ -1,4 +1,5 @@
 #include "Weapon.hpp"
+#include <string>
 
 Weapon::Weapon(std::string str) : _type(str)
 {

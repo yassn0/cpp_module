@@ -1,7 +1,10 @@
+#pragma once
+
 #ifndef HUMANA_HPP
 #define HUMANA_HPP
 
 #include "../Weapon/Weapon.hpp"
+#include <iostream>
 
 class HumanA
 {

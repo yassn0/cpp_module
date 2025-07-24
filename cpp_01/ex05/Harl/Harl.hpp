@@ -2,8 +2,6 @@
 #define HARL_HPP
 
 #include <string>
-#include <iostream>
-#include <fstream>
 
 class Harl
 {
