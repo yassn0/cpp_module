@@ -12,17 +12,21 @@ public:
 	~ClapTrap();
 	ClapTrap(const ClapTrap &other);
 	ClapTrap &operator=(const ClapTrap &other);
-	
-	void attack(const std::string& target);
+
+	ClapTrap(std::string name, int hp, int ep, int ad);
+
+	void attack(const std::string &target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 
-private:
-	ClapTrap();
+protected:
 	std::string _name;
 	int _hp;
 	int _ep;
 	int _ad;
+
+private:
+	ClapTrap();
 };
 
 #endif

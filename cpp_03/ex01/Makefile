@@ -1,7 +1,7 @@
 CC     = c++
 FLAGS  = -Wall -Werror -Wextra -std=c++98
 
-SRCS   = main.cpp ClapTrap/ClapTrap.cpp
+SRCS   = main.cpp ClapTrap/ClapTrap.cpp ScavTrap/ScavTrap.cpp
 OBJS   = $(SRCS:.cpp=.o)
 NAME   = a.out
 

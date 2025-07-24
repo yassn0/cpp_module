@@ -27,8 +27,8 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 		this->_hp = other._hp;
 		this->_ep = other._ep;
 	}
-	return *this;
 	std::cout << "= operator called" << std::endl;
+	return *this;
 }
 
 void ClapTrap::attack(const std::string &target)

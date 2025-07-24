@@ -4,18 +4,23 @@
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _hp(10), _ep(10), _ad(0)
 {
-	std::cout << "Constructor called" << std::endl;
+	std::cout << "ClapTrap Constructor called" << std::endl;
+}
+
+ClapTrap::ClapTrap(std::string name, int hp, int ep, int ad) : _name(name), _hp(hp), _ep(ep), _ad(ad)
+{
+	std::cout << "ClapTrap Constructor called, hp, ep, ad initialize " << std::endl;
 }
 
 ClapTrap::~ClapTrap()
 {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << "ClapTrap Destructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap &other)
 {
 	*this = other;
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << "ScavTrap Copy constructor called" << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &other)
@@ -27,8 +32,8 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 		this->_hp = other._hp;
 		this->_ep = other._ep;
 	}
-	return *this;
 	std::cout << "= operator called" << std::endl;
+	return *this;
 }
 
 void ClapTrap::attack(const std::string &target)
@@ -39,7 +44,7 @@ void ClapTrap::attack(const std::string &target)
 		this->_ep -= 1;
 	}
 	else
-		std::cout << this->_name << " can't attack" << std::endl;
+		std::cout <<"ClipTrap " << this->_name << " can't attack" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
