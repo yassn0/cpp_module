@@ -3,16 +3,10 @@
 
 int main()
 {
-	ClapTrap b("Cody");
+	ScavTrap b("Cody");
 
 	b.beRepaired(3);
-	for (int i = 0; i < 12; i++)
-		b.attack("Cody-clone");
+	b.attack("test");
 	b.beRepaired(3);
-	ScavTrap d("Savage");
-	d.attack("Savage-clone");
-	d.takeDamage(101);
-	d.takeDamage(15);
-	d.attack("ScavTrap-clone");
 	return (0);
 }
