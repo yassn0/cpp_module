@@ -18,10 +18,10 @@ Cat &Cat::operator=(const Cat &other)
 	return *this;
 }
 
-Cat::Cat(const Cat &other)
+Cat::Cat(const Cat &copy) : Animal()
 {
-	if (this != &other)
-		*this = other;
+	if (this != &copy)
+		*this = copy;
 	std::cout << "Copy Cat Constructor called" << std::endl;
 	
 }

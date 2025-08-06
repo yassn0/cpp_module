@@ -18,10 +18,10 @@ Dog &Dog::operator=(const Dog &other)
 	return *this;
 }
 
-Dog::Dog(const Dog &other)
+Dog::Dog(const Dog &copy) : Animal()
 {
-	if (this != &other)
-		*this = other;
+	if (this != &copy)
+		*this = copy;
 	std::cout << "Copy Dog Constructor called" << std::endl;
 }
 
