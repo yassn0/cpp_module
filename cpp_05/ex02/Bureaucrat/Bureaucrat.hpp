@@ -5,6 +5,9 @@
 #include <string>
 #include <exception>
 #include <iostream>
+#include "../AForm/AForm.hpp"
+
+class AForm;
 
 class Bureaucrat
 {
@@ -14,12 +17,13 @@ public:
 	Bureaucrat(const Bureaucrat &);
 	Bureaucrat &operator=(const Bureaucrat &);
 
-	Bureaucrat &operator<<(const Bureaucrat &);
-
 	std::string getName() const;
 	int getGrade() const;
 	void grade_minus(void);
 	void grade_plus(void);
+	
+	void	signForm(AForm &form);
+	void	executeForm(AForm const &form) const;
 
 	class GradeTooLowException : public std::exception
 	{

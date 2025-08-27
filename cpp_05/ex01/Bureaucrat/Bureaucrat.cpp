@@ -73,3 +73,8 @@ void Bureaucrat::grade_plus(void)
 		std::cout << "You cannot decrement above 150" << std::endl;
 	}
 }
+
+void Bureaucrat::signForm(Form &form)
+{
+	form.beSigned(*this);
+}

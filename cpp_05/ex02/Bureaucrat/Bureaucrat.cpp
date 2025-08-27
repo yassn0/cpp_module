@@ -11,12 +11,10 @@ static void grade_check(int grade)
 Bureaucrat::Bureaucrat(std::string name, int grade) : _name(name), _grade(grade)
 {
 	grade_check(_grade);
-	std::cout << "Bureaucrat Constructor called" << std::endl;
 }
 
 Bureaucrat::~Bureaucrat()
 {
-	std::cout << "Bureaucrat Destructor called" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy) : _name(copy._name), _grade(copy._grade)
@@ -71,5 +69,24 @@ void Bureaucrat::grade_plus(void)
 	catch (std::exception &e)
 	{
 		std::cout << "You cannot decrement above 150" << std::endl;
+	}
+}
+
+void Bureaucrat::signForm(AForm &form)
+{
+	form.beSigned(*this);
+}
+
+void Bureaucrat::executeForm(AForm const &form) const
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << _name << " executed " << form.getName() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << _name << " couldn't execute " << form.getName()
+			    << " because " << e.what() << std::endl;
 	}
 }
