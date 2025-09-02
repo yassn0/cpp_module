@@ -2,8 +2,6 @@
 #include <string>
 #include "ScalarConverter/ScalarConverter.hpp"
 
-
-
 int main(int ac, char **av)
 {
 	if (ac != 2)
@@ -12,6 +10,5 @@ int main(int ac, char **av)
 		return 1;
 	}
 	std::string arg = static_cast<std::string>(av[1]);
-
 	ScalarConverter::convert(arg);
 }

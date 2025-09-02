@@ -1,9 +1,9 @@
 CC     = c++
 FLAGS  = -Wall -Werror -Wextra -std=c++98
 
-SRCS   = main.cpp ScalarConverter/ScalarConverter.cpp
+SRCS   = main.cpp Serializer/Serializer.cpp Data/Data.cpp
 OBJS   = $(SRCS:.cpp=.o)
-NAME   = convert
+NAME   = a.out
 
 all: $(NAME)
 
