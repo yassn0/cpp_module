@@ -58,46 +58,34 @@ int Fixed::toInt(void) const
 	return _value >> _raw_bits;
 }
 
-bool Fixed::operator<(const Fixed &other)
+bool Fixed::operator<(const Fixed &other) const
 {
-	if (this->_value < other._value)
-		return true;
-	return false;
+	return this->_value < other._value;
 }
 
-bool Fixed::operator>(const Fixed &other)
+bool Fixed::operator>(const Fixed &other) const
 {
-	if (this->_value > other._value)
-		return true;
-	return false;
+	return this->_value > other._value;
 }
 
-bool Fixed::operator<=(const Fixed &other)
+bool Fixed::operator<=(const Fixed &other) const
 {
-	if (this->_value <= other._value)
-		return true;
-	return false;
+	return this->_value <= other._value;
 }
 
-bool Fixed::operator>=(const Fixed &other)
+bool Fixed::operator>=(const Fixed &other) const
 {
-	if (this->_value >= other._value)
-		return true;
-	return false;
+	return this->_value >= other._value;
 }
 
-bool Fixed::operator==(const Fixed &other)
+bool Fixed::operator==(const Fixed &other) const
 {
-	if (this->_value == other._value)
-		return true;
-	return false;
+	return this->_value == other._value;
 }
 
-bool Fixed::operator!=(const Fixed &other)
+bool Fixed::operator!=(const Fixed &other) const
 {
-	if (this->_value != other._value)
-		return true;
-	return false;
+	return this->_value != other._value;
 }
 
 Fixed Fixed::operator+(const Fixed &other)
@@ -123,6 +111,11 @@ Fixed Fixed::operator*(const Fixed &other)
 
 Fixed Fixed::operator/(const Fixed &other)
 {
+	if (other._value == 0)
+	{
+		std::cout << "Error: Division by zero" << std::endl;
+		return Fixed(0);
+	}
 	float nb = this->toFloat() / other.toFloat();
 
 	return Fixed(nb);
@@ -166,7 +159,7 @@ Fixed &Fixed::min(Fixed &a, Fixed &b)
 
 const Fixed &Fixed::min(Fixed const &a, Fixed const &b)
 {
-	if (a.toFloat() < b.toFloat())
+	if (a._value < b._value)
 		return a;
 	else
 		return b;
@@ -182,7 +175,7 @@ Fixed &Fixed::max(Fixed &a, Fixed &b)
 
 const Fixed &Fixed::max(Fixed const &a, Fixed const &b)
 {
-	if (a.toFloat() > b.toFloat())
+	if (a._value > b._value)
 		return a;
 	else
 		return b;

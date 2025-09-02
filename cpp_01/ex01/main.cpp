@@ -7,12 +7,12 @@ int	main()
 	
 	Zombie *zombies = zombieHorde(N, "BOB");
 	if (!zombies)
-		return NULL;
+		return 1;
 	while (i < N)
 	{
 		zombies[i].announce();
 		i++;
 	}
-	i = 0;
-	delete [] zombies;	
+	delete [] zombies;
+	return 0;	
 }

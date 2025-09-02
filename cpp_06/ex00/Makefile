@@ -1,7 +1,7 @@
 CC     = c++
 FLAGS  = -Wall -Werror -Wextra -std=c++98
 
-SRCS   = main.cpp Fixed/Fixed.cpp
+SRCS   = main.cpp ScalarConverter/ScalarConverter.cpp
 OBJS   = $(SRCS:.cpp=.o)
 NAME   = a.out
 
