@@ -84,11 +84,13 @@ static bool operation(std::string input, std::stack<int> &pile )
 		}
 		else if (is_operator(input[i]))
 		{
+			if (pile.size() < 2)
+				return false;
 			nb1 = pile.top();
 			pile.pop();
 			nb2 = pile.top();
 			pile.pop();
-			if (nb2 == 0 && input[i] == '/')
+			if (nb1 == 0 && input[i] == '/')
 				return false;
 			pile.push(do_operation(nb2, nb1, input[i]));
 			
