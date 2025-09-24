@@ -1,9 +1,9 @@
 CC     = c++
-FLAGS  = -Wall -Werror -Wextra -std=c++98
+FLAGS  = -Wall  -Wextra -g -std=c++98
 
-SRCS   = main.cpp
+SRCS   = main.cpp PmergeMe_class/PmergeMe.cpp PmergeMe_class/PmergeMeSortDeque.cpp PmergeMe_class/PmergeMeSortVector.cpp 
 OBJS   = $(SRCS:.cpp=.o)
-NAME   = a.out
+NAME   = PmergeMe
 
 all: $(NAME)
 

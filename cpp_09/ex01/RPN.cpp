@@ -95,6 +95,8 @@ static bool operation(std::string input, std::stack<int> &pile )
 			pile.push(do_operation(nb2, nb1, input[i]));
 			
 		}
+		else
+			return false;
 	}
 	if (pile.size() != 1)
 		return false;
@@ -108,10 +110,9 @@ void RPN::displayResult(void)
 
 	if (!verif_input(_input))
 	{
-		std::cerr << "Error input" << std::endl;
+		std::cerr << "Error" << std::endl;
 		return;
 	}
-
 	else if (!operation(_input, pile))
 	{
 		std::cerr << "Error" << std::endl;
