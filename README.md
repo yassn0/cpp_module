@@ -1,6 +1,6 @@
 # C++ Modules (00-09)
 
-Ensemble complet des modules C++ du cursus 42, couvrant les fondamentaux de la programmation orientée objet en C++98.
+Ensemble complet des modules C++ du cursus 42, couvrant les fondamentaux de la programmation orientée objet.
 
 ### Fondamentaux
 - Classes et objets
