@@ -15,6 +15,7 @@ int main()
 	{
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
+	
 	std::cout << std::endl << "Test 2: Form grade invalid ---" << std::endl;
 	try
 	{
@@ -25,6 +26,7 @@ int main()
 	{
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
+	
 	std::cout << std::endl << "Test 3: Form grad invalid ---" << std::endl;
 	try
 	{
@@ -40,7 +42,7 @@ int main()
 	try
 	{
 		Bureaucrat bob("Bob", 30);
-		Form contract("Contract", 50, 25);
+		Form contract("Contract", 31, 25);
 		
 		std::cout << bob << std::endl;
 		std::cout << contract << std::endl;
@@ -53,45 +55,5 @@ int main()
 	{
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
-
-	// std::cout << std::endl << "--- Test 4: Bureaucrat ne peut pas signer (grade trop bas) ---" << std::endl;
-	// try
-	// {
-	// 	Bureaucrat intern("Intern", 100);
-	// 	Form topSecret("Top Secret", 20, 10);
-		
-	// 	std::cout << intern << std::endl;
-	// 	std::cout << topSecret << std::endl;
-		
-	// 	intern.signForm(topSecret);
-	// 	std::cout << "Après tentative de signature:" << std::endl;
-	// 	std::cout << topSecret << std::endl;
-	// }
-	// catch (std::exception &e)
-	// {
-	// 	std::cout << "Exception: " << e.what() << std::endl;
-	// }
-
-	// std::cout << std::endl << "--- Test 5: Test de copie de Form ---" << std::endl;
-	// try
-	// {
-	// 	Form original("Original", 50, 30);
-	// 	Form copy = original;
-		
-	// 	std::cout << "Original: " << original << std::endl;
-	// 	std::cout << "Copy: " << copy << std::endl;
-		
-	// 	Bureaucrat signer("Signer", 40);
-	// 	signer.signForm(copy);
-		
-	// 	std::cout << "Après signature de la copie:" << std::endl;
-	// 	std::cout << "Original: " << original << std::endl;
-	// 	std::cout << "Copy: " << copy << std::endl;
-	// }
-	// catch (std::exception &e)
-	// {
-	// 	std::cout << "Exception: " << e.what() << std::endl;
-	// }
-
 	return 0;
 }

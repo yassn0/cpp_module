@@ -17,6 +17,7 @@ int main(int ac, char **av)
 		return 1;
 	}
 	algo.sortVector();
-	// algo.sortDeque();
+	algo.sortDeque();
+	algo.printResults();
 	return 0;
 }

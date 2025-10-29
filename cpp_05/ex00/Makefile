@@ -4,13 +4,14 @@ FLAGS  = -Wall -Werror -Wextra -std=c++98
 SRCS   = main.cpp Bureaucrat/Bureaucrat.cpp
 OBJS   = $(SRCS:.cpp=.o)
 NAME   = a.out
+HEADER = Bureaucrat/Bureaucrat.hpp
 
 all: $(NAME)
 
 %.o: %.cpp
 	$(CC) $(FLAGS) -c $< -o $@
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(HEADER)
 	$(CC) $(FLAGS) $(OBJS) -o $(NAME)
 
 clean:

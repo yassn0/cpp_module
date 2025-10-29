@@ -1,6 +1,6 @@
 #include "PmergeMe.hpp"
 
-PmergeMe::PmergeMe()
+PmergeMe::PmergeMe() : _vector_time(0.0), _deque_time(0.0)
 {
 }
 
@@ -61,4 +61,19 @@ bool PmergeMe::check(int ac, char **av)
 	std::cout << std::endl;
 	
 	return true;
+}
+
+double PmergeMe::getTimeDiff(struct timeval start, struct timeval end)
+{
+	return ((end.tv_sec - start.tv_sec) * 1000000.0) + (end.tv_usec - start.tv_usec);
+}
+
+void PmergeMe::printResults()
+{
+	std::cout << "After:\t";
+	for_each(_vector.begin(), _vector.end(), printInt);
+	std::cout << std::endl;
+
+	std::cout << "Time to process " << _vector.size() << " elements with std::vector : " << _vector_time << " us" << std::endl;
+	std::cout << "Time to process " << _deque.size() << " elements with std::deque : " << _deque_time << " us" << std::endl;
 }

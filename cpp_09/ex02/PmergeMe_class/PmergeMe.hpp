@@ -10,6 +10,7 @@
 #include <algorithm>
 #include <climits>
 #include <cstddef>
+#include <sys/time.h>
 
 class PmergeMe
 {
@@ -22,8 +23,13 @@ public:
 	bool check(int ac, char **av);
 	void sortVector();
 	void sortDeque();
-	
+	void printResults();
+
 private:
 	std::vector<int> _vector;
 	std::deque<int> _deque;
+	double _vector_time;
+	double _deque_time;
+
+	double getTimeDiff(struct timeval start, struct timeval end);
 };

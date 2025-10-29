@@ -28,14 +28,14 @@ public:
 	{
 		virtual const char *what() const throw()
 		{
-			return "Grade must be between 1 and 150 !";
+			return "Grade Too low";
 		}
 	};
 	class GradeTooHighException : public std::exception
 	{
 		virtual const char *what() const throw()
 		{
-			return "Grade must be between 1 and 150 !";
+			return "Grade Too high";
 		}
 	};
 

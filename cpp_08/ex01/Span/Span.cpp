@@ -14,11 +14,9 @@ Span::~Span()
 	std::cout << "Span Destructor called" << std::endl;
 }
 
-Span::Span(const Span &copy) : _N(copy._N)
+Span::Span(const Span &copy) : _tab(copy._tab), _N(copy._N)
 {
 	std::cout << "Span Copy Constructor called" << std::endl;
-	_tab = copy._tab;
-	*this = copy;
 }
 
 Span &Span::operator=(const Span &obj)
@@ -35,10 +33,7 @@ Span &Span::operator=(const Span &obj)
 void Span::addNumber(int nb)
 {
 	if (_tab.size() >= _N)
-	{
 		throw WrongIndex();
-		return;
-	}
 	_tab.push_back(nb);
 }
 
@@ -60,7 +55,7 @@ int Span::shortestSpan(void)
 
 int Span::longestSpan(void)
 {
-	if (_tab.size() <= 1)
+	if (_tab.size() < 2)
 		throw WrongIndex();
 	int max = *std::max_element(_tab.begin(), _tab.end());
 	int min = *std::min_element(_tab.begin(), _tab.end());

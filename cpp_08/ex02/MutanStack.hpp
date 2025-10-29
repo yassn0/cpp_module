@@ -30,19 +30,20 @@ public:
 
 	MutantStack() : std::stack<T, Container>()
 	{
-		std::cout << "MutanStack Constructor called" << std::endl;
+		std::cout << "MutantStack Constructor called" << std::endl;
 	}
 	~MutantStack()
 	{
+		std::cout << "MutantStack Destructor called" << std::endl;
 	}
 	MutantStack(const MutantStack &copy) : std::stack<T, Container>(copy)
 	{
-		std::cout << "MutanStack Copy Constructor called" << std::endl;
+		std::cout << "MutantStack Copy Constructor called" << std::endl;
 	}
 	MutantStack &operator=(const MutantStack &obj)
 	{
 		std::stack<T, Container>::operator=(obj);
-		std::cout << "operator= MutanStack called" << std::endl;
+		std::cout << "operator= MutantStack called" << std::endl;
 		return *this;
 	}
 

@@ -1,5 +1,5 @@
 #pragma once
-#include "cstdlib"
+#include <cstdlib>
 #include <vector>
 #include <exception>
 
@@ -19,9 +19,10 @@ public:
 
 	class WrongIndex : public std::exception
 	{
+	public:
 		virtual const char *what() const throw()
 		{
-			return "Span can't stored more elements";
+			return "Span can't store more elements";
 		}
 	};
 

@@ -23,6 +23,7 @@ int main()
 	{
 		std::cout << "Error: " << e.what() << std::endl;
 	}
+	std::cout << std::endl;
 	std::cout << "Test 2: RobotomyRequestForm" << std::endl;
 	try
 	{
@@ -36,6 +37,7 @@ int main()
 	{
 		std::cout << "Error: " << e.what() << std::endl;
 	}
+	std::cout << std::endl;
 	std::cout << "Test 3: PresidentialPardonForm" << std::endl;
 	try
 	{
@@ -49,6 +51,7 @@ int main()
 	{
 		std::cout << "Error: " << e.what() << std::endl;
 	}
+	std::cout << std::endl;
 	std::cout << "Test 4: Grade too low for execution" << std::endl;
 	try
 	{

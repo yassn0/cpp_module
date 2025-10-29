@@ -14,6 +14,8 @@ int main()
 	Intern someRandomIntern;
 	AForm *rrf;
 	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+	if (!rrf)
+		return 1;
 	rrf->beSigned(b1);
 	rrf->execute(b1);
 	delete rrf;

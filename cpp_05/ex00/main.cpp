@@ -17,10 +17,6 @@ int main()
 		a.grade_minus();
 		a.grade_minus();
 		std::cout << a << std::endl;
-		
-		
-		
-		
 	}
 	catch (std::exception &e)
 	{

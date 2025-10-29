@@ -14,8 +14,6 @@ public:
 	Bureaucrat(const Bureaucrat &);
 	Bureaucrat &operator=(const Bureaucrat &);
 
-	Bureaucrat &operator<<(const Bureaucrat &);
-
 	std::string getName() const;
 	int getGrade() const;
 	void grade_minus(void);
@@ -25,14 +23,14 @@ public:
 	{
 		virtual const char *what() const throw()
 		{
-			return "Grade must be between 1 and 150 !";
+			return "Too low :Grade must be between 1 and 150 !";
 		}
 	};
 	class GradeTooHighException : public std::exception
 	{
 		virtual const char *what() const throw()
 		{
-			return "Grade must be between 1 and 150 !";
+			return "Too high: Grade must be between 1 and 150 !";
 		}
 	};
 
