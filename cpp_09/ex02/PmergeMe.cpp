@@ -24,6 +24,7 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &other)
 
 
 
+
 void PmergeMe::sortVector(std::vector<int> &vec)
 {
 	if (vec.size() <= 1)
@@ -72,7 +73,6 @@ void PmergeMe::fordJohnsonVector(std::vector<int> &vec)
 		main_chain.push_back(larger_elements[j]);
 
 	// Step 5: Insert smaller elements using binary insertion
-	// Now we can correctly retrieve smaller elements using the map
 	std::vector<int> smaller_elements;
 	for (size_t j = 0; j < larger_elements.size(); j++)
 		smaller_elements.push_back(large_to_small[larger_elements[j]]);
@@ -95,53 +95,15 @@ void PmergeMe::fordJohnsonVector(std::vector<int> &vec)
 	vec = main_chain;
 }
 
-void PmergeMe::insertionSortVector(std::vector<int> &vec)
-{
-	for (size_t i = 1; i < vec.size(); i++)
-	{
-		int key = vec[i];
-		int j = i - 1;
-		while (j >= 0 && vec[j] > key)
-		{
-			vec[j + 1] = vec[j];
-			j--;
-		}
-		vec[j + 1] = key;
-	}
-}
-
 void PmergeMe::binaryInsertVector(std::vector<int> &vec, int value)
 {
 	std::vector<int>::iterator pos = std::lower_bound(vec.begin(), vec.end(), value);
 	vec.insert(pos, value);
 }
 
-std::vector<int> PmergeMe::mergeVector(std::vector<int> &left, std::vector<int> &right)
-{
-	std::vector<int> result;
-	size_t i = 0, j = 0;
-
-	while (i < left.size() && j < right.size())
-	{
-		if (left[i] <= right[j])
-			result.push_back(left[i++]);
-		else
-			result.push_back(right[j++]);
-	}
-
-	while (i < left.size())
-		result.push_back(left[i++]);
-	while (j < right.size())
-		result.push_back(right[j++]);
-
-	return result;
-}
-
-
-
-
-
-
+// ============================================================================
+// DEQUE IMPLEMENTATION
+// ============================================================================
 
 void PmergeMe::sortDeque(std::deque<int> &deq)
 {
@@ -152,7 +114,6 @@ void PmergeMe::sortDeque(std::deque<int> &deq)
 
 void PmergeMe::fordJohnsonDeque(std::deque<int> &deq)
 {
-
 	// Step 1: Group elements into pairs and sort each pair
 	std::vector<std::pair<int, int> > pairs;
 	size_t i;
@@ -214,44 +175,8 @@ void PmergeMe::fordJohnsonDeque(std::deque<int> &deq)
 	deq = main_chain;
 }
 
-void PmergeMe::insertionSortDeque(std::deque<int> &deq)
-{
-	for (size_t i = 1; i < deq.size(); i++)
-	{
-		int key = deq[i];
-		int j = i - 1;
-		while (j >= 0 && deq[j] > key)
-		{
-			deq[j + 1] = deq[j];
-			j--;
-		}
-		deq[j + 1] = key;
-	}
-}
-
 void PmergeMe::binaryInsertDeque(std::deque<int> &deq, int value)
 {
 	std::deque<int>::iterator pos = std::lower_bound(deq.begin(), deq.end(), value);
 	deq.insert(pos, value);
-}
-
-std::deque<int> PmergeMe::mergeDeque(std::deque<int> &left, std::deque<int> &right)
-{
-	std::deque<int> result;
-	size_t i = 0, j = 0;
-
-	while (i < left.size() && j < right.size())
-	{
-		if (left[i] <= right[j])
-			result.push_back(left[i++]);
-		else
-			result.push_back(right[j++]);
-	}
-
-	while (i < left.size())
-		result.push_back(left[i++]);
-	while (j < right.size())
-		result.push_back(right[j++]);
-
-	return result;
 }

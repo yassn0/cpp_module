@@ -6,6 +6,7 @@
 #include <sys/time.h>
 #include <iomanip>
 #include <limits.h>
+#include <set>
 
 bool isValidNumber(const std::string &str)
 {
@@ -20,6 +21,19 @@ bool isValidNumber(const std::string &str)
 	long num = std::strtol(str.c_str(), &endptr, 10);
 	if (*endptr != '\0' || num < 0 || num > INT_MAX)
 		return false;
+	return true;
+}
+
+bool noDoublon(const std::vector<int> &vec)
+{
+	std::set<int> seen;
+	
+	for (size_t i = 0; i < vec.size(); i++)
+	{
+		if (seen.find(vec[i]) != seen.end())
+			return false;
+		seen.insert(vec[i]);
+	}
 	return true;
 }
 
@@ -62,6 +76,12 @@ int main(int ac, char **av)
 		int num = std::atoi(av[i]);
 		input_vec.push_back(num);
 		input_deq.push_back(num);
+	}
+
+	if (!noDoublon(input_vec))
+	{
+		std::cerr << "Error" << std::endl;
+		return 1;
 	}
 
 	std::cout << "Before: ";
