@@ -6,7 +6,6 @@
 
 RPN::RPN(std::string input) : _input(input)
 {
-	std::cout << _input << std::endl;
 }
 
 RPN::~RPN()
@@ -15,7 +14,6 @@ RPN::~RPN()
 
 RPN::RPN(const RPN &copy) : _input(copy._input)
 {
-	std::cout << "RPN Copy Constructor called" << std::endl;
 }
 
 RPN &RPN::operator=(const RPN &other)
@@ -24,7 +22,6 @@ RPN &RPN::operator=(const RPN &other)
 	{
 		_input = other._input;
 	}
-	std::cout << "RPN operator= called" << std::endl;
 	return *this;
 }
 

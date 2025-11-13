@@ -7,12 +7,12 @@ int main(int ac, char **av)
 	
 	if (ac != 2)
 	{
-		std::cout << "Error: Two argument needed" << std::endl;
+		std::cout << "Error: could not open file." << std::endl;
 		return 1;
 	}
 	if (!btc.getData(av[1]))
 		return (1);
 	if (!btc.displayData())
 		return (1);
-	
+	return (0);
 }

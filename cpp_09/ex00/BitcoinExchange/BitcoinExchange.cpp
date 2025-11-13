@@ -13,7 +13,7 @@ BitcoinExchange::~BitcoinExchange()
 {
 }
 
-BitcoinExchange::BitcoinExchange(const BitcoinExchange &)
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &other) : _map_data(other._map_data)
 {
 }
 
@@ -21,6 +21,7 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &other)
 {
 	if (this != &other)
 	{
+		_map_data = other._map_data;
 	}
 	return *this;
 }
@@ -61,12 +62,25 @@ static int verif_date(const std::string &date)
 		if (!std::isdigit(date[i]))
 			return 0;
 	}
+	int year = atoi(date.substr(0, 4).c_str());
 	int month = atoi(date.substr(5, 2).c_str());
 	int day = atoi(date.substr(8, 2).c_str());
+
 	if (month < 1 || month > 12)
 		return 0;
 	if (day < 1 || day > 31)
 		return 0;
+
+	// Check days per month
+	int days_in_month[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+	// Check for leap year
+	if (month == 2 && ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)))
+		days_in_month[1] = 29;
+
+	if (day > days_in_month[month - 1])
+		return 0;
+
 	return 1;
 }
 
@@ -133,7 +147,7 @@ int BitcoinExchange::displayData()
 			std::cout << "Error: bad input => " << input_date << std::endl;
 		else if (input_value < 0)
 			std::cout << "Error: not a positive number." << std::endl;
-		else if (input_value < INT_MIN || input_value > INT_MAX)
+		else if (input_value > 1000)
 			std::cout << "Error: too large a number." << std::endl;
 		else
 		{
