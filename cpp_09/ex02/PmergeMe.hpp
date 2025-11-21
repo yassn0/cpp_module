@@ -22,4 +22,7 @@ private:
 
 	void binaryInsertVector(std::vector<int> &vec, int value);
 	void binaryInsertDeque(std::deque<int> &deq, int value);
+
+	std::vector<size_t> generateJacobsthalSequence(size_t n);
+	std::vector<size_t> generateInsertionOrder(size_t n);
 };
